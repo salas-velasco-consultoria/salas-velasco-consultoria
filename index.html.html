@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Israel Salas Velasco — COO & Fractional C-Suite Advisor</title>
+  <meta name="description" content="COO y asesor ejecutivo fraccional con más de 15 años de experiencia en diseño de modelos operativos, mejora de procesos y liderazgo de equipos internacionales.">
+  <style>
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+    :root {
+      --bg: #ffffff;
+      --bg-secondary: #f5f5f3;
+      --text: #1a1a1a;
+      --text-secondary: #6b6b6b;
+      --text-tertiary: #a0a0a0;
+      --border: rgba(0,0,0,0.1);
+      --border-hover: rgba(0,0,0,0.2);
+      --accent: #1a1a1a;
+    }
+
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --bg: #111111;
+        --bg-secondary: #1e1e1e;
+        --text: #f0f0f0;
+        --text-secondary: #9a9a9a;
+        --text-tertiary: #555555;
+        --border: rgba(255,255,255,0.1);
+        --border-hover: rgba(255,255,255,0.2);
+        --accent: #f0f0f0;
+      }
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* NAV */
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1.25rem 2.5rem;
+      border-bottom: 0.5px solid var(--border);
+      background: var(--bg);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+    .nav-name { font-size: 15px; font-weight: 500; letter-spacing: -0.2px; color: var(--text); }
+    .nav-links { display: flex; gap: 2rem; }
+    .nav-links a {
+      font-size: 12px;
+      color: var(--text-secondary);
+      text-decoration: none;
+      letter-spacing: 0.8px;
+      text-transform: uppercase;
+      transition: color 0.2s;
+    }
+    .nav-links a:hover { color: var(--text); }
+    .nav-toggle { display: none; background: none; border: none; cursor: pointer; padding: 4px; }
+    .nav-toggle span {
+      display: block; width: 20px; height: 1.5px;
+      background: var(--text); margin: 4px 0; transition: 0.2s;
+    }
+
+    /* SECTIONS */
+    .section { padding: 5rem 2.5rem; max-width: 900px; margin: 0 auto; }
+    .section-label {
+      font-size: 11px;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: var(--text-secondary);
+      margin-bottom: 2rem;
+    }
+    .section h2 {
+      font-size: 28px;
+      font-weight: 500;
+      letter-spacing: -0.5px;
+      margin-bottom: 1.25rem;
+      color: var(--text);
+    }
+    hr.divider {
+      border: none;
+      border-top: 0.5px solid var(--border);
+      margin: 0 2.5rem;
+    }
+
+    /* HERO */
+    .hero { padding-top: 6rem; padding-bottom: 6rem; }
+    .hero-eyebrow {
+      font-size: 11px;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: var(--text-secondary);
+      margin-bottom: 1.5rem;
+    }
+    .hero h1 {
+      font-size: clamp(32px, 5vw, 48px);
+      font-weight: 500;
+      line-height: 1.15;
+      letter-spacing: -1px;
+      margin-bottom: 1.5rem;
+      max-width: 700px;
+      color: var(--text);
+    }
+    .hero h1 em { font-style: italic; color: var(--text-secondary); }
+    .hero-body {
+      font-size: 17px;
+      color: var(--text-secondary);
+      line-height: 1.75;
+      max-width: 580px;
+      margin-bottom: 2.5rem;
+    }
+    .hero-cta { display: flex; gap: 12px; flex-wrap: wrap; }
+
+    /* BUTTONS */
+    .btn-dark {
+      padding: 11px 26px;
+      font-size: 14px;
+      font-weight: 500;
+      background: var(--text);
+      color: var(--bg);
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: opacity 0.2s;
+      text-decoration: none;
+      display: inline-block;
+    }
+    .btn-dark:hover { opacity: 0.8; }
+    .btn-outline {
+      padding: 11px 26px;
+      font-size: 14px;
+      font-weight: 500;
+      background: transparent;
+      color: var(--text);
+      border: 0.5px solid var(--border-hover);
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background 0.2s;
+      text-decoration: none;
+      display: inline-block;
+    }
+    .btn-outline:hover { background: var(--bg-secondary); }
+
+    /* CREDENTIAL BAR */
+    .credential-bar {
+      border-top: 0.5px solid var(--border);
+      border-bottom: 0.5px solid var(--border);
+      padding: 2rem 2.5rem;
+      display: flex;
+      gap: 3rem;
+      flex-wrap: wrap;
+    }
+    .cred-item { min-width: 100px; }
+    .cred-num { font-size: 28px; font-weight: 500; letter-spacing: -0.5px; color: var(--text); }
+    .cred-label { font-size: 12px; color: var(--text-secondary); margin-top: 4px; line-height: 1.4; }
+
+    /* ABOUT */
+    .about-body {
+      font-size: 16px;
+      color: var(--text-secondary);
+      line-height: 1.8;
+      max-width: 680px;
+      margin-bottom: 1.5rem;
+    }
+    .pills { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 0.5rem; }
+    .pill {
+      font-size: 12px;
+      color: var(--text-secondary);
+      border: 0.5px solid var(--border);
+      border-radius: 20px;
+      padding: 5px 14px;
+      letter-spacing: 0.1px;
+    }
+
+    /* SERVICES */
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 16px;
+    }
+    .service-card {
+      background: var(--bg);
+      border: 0.5px solid var(--border);
+      border-radius: 12px;
+      padding: 1.5rem;
+      transition: border-color 0.2s;
+    }
+    .service-card:hover { border-color: var(--border-hover); }
+    .service-icon {
+      width: 36px; height: 36px;
+      border-radius: 8px;
+      background: var(--bg-secondary);
+      display: flex; align-items: center; justify-content: center;
+      margin-bottom: 1rem;
+    }
+    .service-icon svg { width: 16px; height: 16px; stroke: var(--text-secondary); fill: none; stroke-width: 1.5; }
+    .service-card h3 { font-size: 15px; font-weight: 500; margin-bottom: 8px; color: var(--text); }
+    .service-card p { font-size: 13px; color: var(--text-secondary); line-height: 1.65; }
+
+    /* QUOTE */
+    .quote-block {
+      border-left: 2px solid var(--border);
+      padding-left: 1.5rem;
+      margin-bottom: 2rem;
+    }
+    .quote-text {
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 18px;
+      line-height: 1.7;
+      color: var(--text);
+      margin-bottom: 0.75rem;
+    }
+    .quote-attr { font-size: 13px; color: var(--text-secondary); }
+
+    /* CONTACT */
+    .contact-box {
+      background: var(--bg-secondary);
+      border-radius: 12px;
+      padding: 3rem 2.5rem;
+      text-align: center;
+      margin: 0 2.5rem 5rem;
+    }
+    .contact-box h2 { font-size: 28px; font-weight: 500; letter-spacing: -0.5px; margin-bottom: 0.75rem; }
+    .contact-box p { font-size: 16px; color: var(--text-secondary); max-width: 480px; margin: 0 auto 2rem; }
+    .contact-links { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; margin-top: 1.5rem; }
+    .contact-link {
+      font-size: 13px;
+      color: var(--text-secondary);
+      text-decoration: none;
+      border: 0.5px solid var(--border);
+      border-radius: 8px;
+      padding: 9px 18px;
+      background: var(--bg);
+      transition: border-color 0.2s, color 0.2s;
+    }
+    .contact-link:hover { border-color: var(--border-hover); color: var(--text); }
+
+    /* FOOTER */
+    footer {
+      text-align: center;
+      padding: 2rem;
+      font-size: 12px;
+      color: var(--text-tertiary);
+      border-top: 0.5px solid var(--border);
+      letter-spacing: 0.3px;
+    }
+
+    /* RESPONSIVE */
+    @media (max-width: 640px) {
+      nav { padding: 1rem 1.5rem; }
+      .nav-links { display: none; }
+      .nav-links.open { display: flex; flex-direction: column; gap: 1rem; position: absolute; top: 56px; left: 0; right: 0; background: var(--bg); padding: 1.5rem; border-bottom: 0.5px solid var(--border); }
+      .nav-toggle { display: block; }
+      .section { padding: 3.5rem 1.5rem; }
+      .hero { padding-top: 4rem; padding-bottom: 4rem; }
+      .credential-bar { padding: 1.5rem; gap: 1.5rem; }
+      .services-grid { grid-template-columns: 1fr; }
+      .contact-box { margin: 0 1.5rem 4rem; padding: 2rem 1.5rem; }
+      hr.divider { margin: 0 1.5rem; }
+    }
+  </style>
+</head>
+<body>
+
+<nav>
+  <span class="nav-name">Israel Salas Velasco</span>
+  <div class="nav-links" id="nav-menu">
+    <a href="#about">Sobre mí</a>
+    <a href="#services">Servicios</a>
+    <a href="#contact">Contacto</a>
+  </div>
+  <button class="nav-toggle" id="nav-toggle" aria-label="Menú">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<div class="section hero">
+  <p class="hero-eyebrow">COO &amp; Fractional C-Suite Advisor</p>
+  <h1>Operaciones que <em>escalan.</em><br>Liderazgo que entrega resultados.</h1>
+  <p class="hero-body">Con más de 15 años de experiencia, ayudo a empresas de servicios y organizaciones en crecimiento a diseñar modelos operativos sólidos, reducir riesgos estructurales y ejecutar con claridad — sin añadir complejidad innecesaria.</p>
+  <div class="hero-cta">
+    <a class="btn-dark" href="#contact">Trabajemos juntos</a>
+    <a class="btn-outline" href="#services">Ver servicios</a>
+  </div>
+</div>
+
+<div class="credential-bar">
+  <div class="cred-item">
+    <div class="cred-num">15+</div>
+    <div class="cred-label">Años de experiencia</div>
+  </div>
+  <div class="cred-item">
+    <div class="cred-num">COO</div>
+    <div class="cred-label">Nivel C-Suite en operaciones</div>
+  </div>
+  <div class="cred-item">
+    <div class="cred-num">Multi-región</div>
+    <div class="cred-label">Equipos remotos internacionales</div>
+  </div>
+  <div class="cred-item">
+    <div class="cred-num">Fractional</div>
+    <div class="cred-label">Modelo flexible para tu empresa</div>
+  </div>
+</div>
+
+<hr class="divider">
+
+<div class="section" id="about">
+  <p class="section-label">Sobre mí</p>
+  <h2>Claridad operativa para empresas que quieren crecer con control</h2>
+  <p class="about-body">Soy consultor ejecutivo especializado en diseño de modelos de negocio y operativos, mejora de procesos, gestión del desempeño y ejecución interfuncional. Mi enfoque es práctico: propongo e implemento soluciones que fortalecen la estructura operativa, aumentan la capacidad y reducen el riesgo financiero y estructural — sin complejidad innecesaria.</p>
+  <p class="about-body">He liderado equipos internacionales completamente remotos en múltiples regiones, trabajando con empresas de servicios y compañías de tamaño pequeño a mediano en momentos críticos de crecimiento y transformación.</p>
+  <div class="pills">
+    <span class="pill">Diseño de modelo operativo</span>
+    <span class="pill">Mejora de procesos</span>
+    <span class="pill">Gestión del desempeño</span>
+    <span class="pill">Ejecución interfuncional</span>
+    <span class="pill">Equipos remotos</span>
+    <span class="pill">Reducción de riesgo estructural</span>
+    <span class="pill">Fractional COO</span>
+    <span class="pill">Escala operativa</span>
+  </div>
+</div>
+
+<hr class="divider">
+
+<div class="section" id="services">
+  <p class="section-label">Servicios</p>
+  <h2>Cómo puedo ayudarte</h2>
+  <div class="services-grid">
+    <div class="service-card">
+      <div class="service-icon">
+        <svg viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/><path d="M14 17.5h7M17.5 14v7"/></svg>
+      </div>
+      <h3>Fractional COO</h3>
+      <p>Liderazgo operativo de alto nivel sin el costo de un ejecutivo de tiempo completo. Ideal para empresas en crecimiento que necesitan estructura y dirección ejecutiva.</p>
+    </div>
+    <div class="service-card">
+      <div class="service-icon">
+        <svg viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
+      </div>
+      <h3>Diseño de modelo operativo</h3>
+      <p>Construcción y rediseño de modelos de negocio y operativos que soporten el crecimiento, mejoren la eficiencia y reduzcan el riesgo estructural y financiero.</p>
+    </div>
+    <div class="service-card">
+      <div class="service-icon">
+        <svg viewBox="0 0 24 24"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
+      </div>
+      <h3>Mejora de procesos y desempeño</h3>
+      <p>Diagnóstico y optimización de procesos clave, sistemas de gestión del desempeño y marcos de ejecución para equipos multifuncionales.</p>
+    </div>
+    <div class="service-card">
+      <div class="service-icon">
+        <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/></svg>
+      </div>
+      <h3>Asesoría C-Suite fraccional</h3>
+      <p>Acompañamiento estratégico a fundadores y directivos en decisiones operativas críticas, con foco en ejecución práctica y resultados medibles.</p>
+    </div>
+  </div>
+</div>
+
+<hr class="divider">
+
+<div class="section">
+  <p class="section-label">Por qué trabajar conmigo</p>
+  <div class="quote-block">
+    <p class="quote-text">"Combino visión estratégica con ejecución práctica. No entrego presentaciones — entrego sistemas que funcionan."</p>
+    <p class="quote-attr">— Israel Salas Velasco, COO &amp; Advisor</p>
+  </div>
+  <p class="about-body">Mi diferenciador es la capacidad de operar tanto a nivel estratégico como en los detalles de implementación. Entiendo que cada empresa es diferente, por lo que mis soluciones se adaptan al contexto, la cultura y el momento de cada organización — sin fórmulas genéricas.</p>
+</div>
+
+<div class="contact-box" id="contact">
+  <p class="section-label" style="text-align:center;">Contacto</p>
+  <h2>¿Listo para transformar tus operaciones?</h2>
+  <p>Platicemos sobre los retos de tu empresa y cómo puedo ayudarte a construir una operación más sólida y escalable.</p>
+  <a class="btn-dark" href="mailto:salas.velasco.consultoria@gmail.com">Enviar un mensaje</a>
+  <div class="contact-links">
+    <a class="contact-link" href="https://www.linkedin.com/in/israel-s-018b58181" target="_blank" rel="noopener">LinkedIn</a>
+    <a class="contact-link" href="mailto:salas.velasco.consultoria@gmail.com">salas.velasco.consultoria@gmail.com</a>
+  </div>
+</div>
+
+<footer>© 2026 Israel Salas Velasco — Querétaro, México</footer>
+
+<script>
+  const toggle = document.getElementById('nav-toggle');
+  const menu = document.getElementById('nav-menu');
+  toggle.addEventListener('click', () => menu.classList.toggle('open'));
+  document.querySelectorAll('.nav-links a').forEach(a => {
+    a.addEventListener('click', () => menu.classList.remove('open'));
+  });
+</script>
+
+</body>
+</html>
