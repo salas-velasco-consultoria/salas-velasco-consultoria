@@ -9,303 +9,145 @@
     *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
 
     :root {
-      --bg: #ffffff;
-      --bg-secondary: #f5f5f3;
-      --text: #1a1a1a;
-      --text-secondary: #6b6b6b;
-      --text-tertiary: #a0a0a0;
-      --border: rgba(0,0,0,0.1);
-      --border-hover: rgba(0,0,0,0.2);
-      --accent: #1a1a1a;
+      --bg: #ffffff; --bg-secondary: #f5f5f3;
+      --text: #1a1a1a; --text-secondary: #6b6b6b; --text-tertiary: #a0a0a0;
+      --border: rgba(0,0,0,0.1); --border-hover: rgba(0,0,0,0.2);
     }
-
     @media (prefers-color-scheme: dark) {
       :root {
-        --bg: #111111;
-        --bg-secondary: #1e1e1e;
-        --text: #f0f0f0;
-        --text-secondary: #9a9a9a;
-        --text-tertiary: #555555;
-        --border: rgba(255,255,255,0.1);
-        --border-hover: rgba(255,255,255,0.2);
-        --accent: #f0f0f0;
+        --bg: #111111; --bg-secondary: #1e1e1e;
+        --text: #f0f0f0; --text-secondary: #9a9a9a; --text-tertiary: #555555;
+        --border: rgba(255,255,255,0.1); --border-hover: rgba(255,255,255,0.2);
       }
     }
 
     html { scroll-behavior: smooth; }
-
     body {
       font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
-      background: var(--bg);
-      color: var(--text);
-      line-height: 1.6;
+      background: var(--bg); color: var(--text); line-height: 1.6;
       -webkit-font-smoothing: antialiased;
     }
 
     /* NAV */
     nav {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 1.25rem 2.5rem;
-      border-bottom: 0.5px solid var(--border);
-      background: var(--bg);
-      position: sticky;
-      top: 0;
-      z-index: 100;
+      display: flex; justify-content: space-between; align-items: center;
+      padding: 1.25rem 2.5rem; border-bottom: 0.5px solid var(--border);
+      background: var(--bg); position: sticky; top: 0; z-index: 100;
     }
-    .nav-name { font-size: 15px; font-weight: 500; letter-spacing: -0.2px; color: var(--text); }
+    /* ── Tamaño del nombre en el nav: modifica "font-size" en la línea de abajo ── */
+    .nav-name { font-size: 20px; font-weight: 500; letter-spacing: -0.3px; color: var(--text); }
     .nav-links { display: flex; gap: 2rem; }
     .nav-links a {
-      font-size: 12px;
-      color: var(--text-secondary);
-      text-decoration: none;
-      letter-spacing: 0.8px;
-      text-transform: uppercase;
-      transition: color 0.2s;
+      font-size: 12px; color: var(--text-secondary); text-decoration: none;
+      letter-spacing: 0.8px; text-transform: uppercase; transition: color 0.2s;
     }
     .nav-links a:hover { color: var(--text); }
-    .nav-toggle { display: none; background: none; border: none; cursor: pointer; padding: 4px; }
-    .nav-toggle span {
-      display: block; width: 20px; height: 1.5px;
-      background: var(--text); margin: 4px 0; transition: 0.2s;
+    .nav-right { display: flex; align-items: center; gap: 12px; }
+    .btn-lang {
+      font-size: 12px; letter-spacing: 0.8px; text-transform: uppercase;
+      color: var(--text-secondary); background: none; border: 0.5px solid var(--border);
+      border-radius: 6px; padding: 5px 12px; cursor: pointer;
+      transition: color 0.2s, border-color 0.2s; font-family: inherit;
     }
+    .btn-lang:hover { color: var(--text); border-color: var(--border-hover); }
+    .nav-toggle { display: none; background: none; border: none; cursor: pointer; padding: 4px; }
+    .nav-toggle span { display: block; width: 20px; height: 1.5px; background: var(--text); margin: 4px 0; }
 
     /* SECTIONS */
     .section { padding: 5rem 2.5rem; max-width: 900px; margin: 0 auto; }
     .section-label {
-      font-size: 11px;
-      letter-spacing: 1.5px;
-      text-transform: uppercase;
-      color: var(--text-secondary);
-      margin-bottom: 2rem;
+      font-size: 11px; letter-spacing: 1.5px; text-transform: uppercase;
+      color: var(--text-secondary); margin-bottom: 2rem;
     }
-    .section h2 {
-      font-size: 28px;
-      font-weight: 500;
-      letter-spacing: -0.5px;
-      margin-bottom: 1.25rem;
-      color: var(--text);
-    }
-    hr.divider {
-      border: none;
-      border-top: 0.5px solid var(--border);
-      margin: 0 2.5rem;
-    }
+    .section h2 { font-size: 28px; font-weight: 500; letter-spacing: -0.5px; margin-bottom: 1.25rem; color: var(--text); }
+    hr.divider { border: none; border-top: 0.5px solid var(--border); margin: 0 2.5rem; }
 
     /* HERO */
     .hero { padding-top: 6rem; padding-bottom: 6rem; }
-    .hero-eyebrow {
-      font-size: 11px;
-      letter-spacing: 1.5px;
-      text-transform: uppercase;
-      color: var(--text-secondary);
-      margin-bottom: 1.5rem;
-    }
-    .hero h1 {
-      font-size: clamp(32px, 5vw, 48px);
-      font-weight: 500;
-      line-height: 1.15;
-      letter-spacing: -1px;
-      margin-bottom: 1.5rem;
-      max-width: 700px;
-      color: var(--text);
-    }
+    .hero-eyebrow { font-size: 11px; letter-spacing: 1.5px; text-transform: uppercase; color: var(--text-secondary); margin-bottom: 1.5rem; }
+    .hero h1 { font-size: clamp(32px, 5vw, 48px); font-weight: 500; line-height: 1.15; letter-spacing: -1px; margin-bottom: 1.5rem; max-width: 700px; color: var(--text); }
     .hero h1 em { font-style: italic; color: var(--text-secondary); }
-    .hero-body {
-      font-size: 17px;
-      color: var(--text-secondary);
-      line-height: 1.75;
-      max-width: 580px;
-      margin-bottom: 2.5rem;
-    }
+    .hero-body { font-size: 17px; color: var(--text-secondary); line-height: 1.75; max-width: 580px; margin-bottom: 2.5rem; }
     .hero-cta { display: flex; gap: 12px; flex-wrap: wrap; }
 
     /* BUTTONS */
     .btn-dark {
-      padding: 11px 26px;
-      font-size: 14px;
-      font-weight: 500;
-      background: var(--text);
-      color: var(--bg);
-      border: none;
-      border-radius: 8px;
-      cursor: pointer;
-      transition: opacity 0.2s;
-      text-decoration: none;
-      display: inline-block;
+      padding: 11px 26px; font-size: 14px; font-weight: 500;
+      background: var(--text); color: var(--bg); border: none; border-radius: 8px;
+      cursor: pointer; transition: opacity 0.2s; text-decoration: none; display: inline-block;
     }
     .btn-dark:hover { opacity: 0.8; }
     .btn-outline {
-      padding: 11px 26px;
-      font-size: 14px;
-      font-weight: 500;
-      background: transparent;
-      color: var(--text);
-      border: 0.5px solid var(--border-hover);
-      border-radius: 8px;
-      cursor: pointer;
-      transition: background 0.2s;
-      text-decoration: none;
-      display: inline-block;
+      padding: 11px 26px; font-size: 14px; font-weight: 500; background: transparent;
+      color: var(--text); border: 0.5px solid var(--border-hover); border-radius: 8px;
+      cursor: pointer; transition: background 0.2s; text-decoration: none; display: inline-block;
     }
     .btn-outline:hover { background: var(--bg-secondary); }
 
     /* CREDENTIAL BAR */
     .credential-bar {
-      border-top: 0.5px solid var(--border);
-      border-bottom: 0.5px solid var(--border);
-      padding: 2rem 2.5rem;
-      display: flex;
-      gap: 3rem;
-      flex-wrap: wrap;
+      border-top: 0.5px solid var(--border); border-bottom: 0.5px solid var(--border);
+      padding: 2rem 2.5rem; display: flex; gap: 3rem; flex-wrap: wrap;
     }
     .cred-item { min-width: 100px; }
     .cred-num { font-size: 28px; font-weight: 500; letter-spacing: -0.5px; color: var(--text); }
     .cred-label { font-size: 12px; color: var(--text-secondary); margin-top: 4px; line-height: 1.4; }
 
     /* ABOUT */
-    .about-body {
-      font-size: 16px;
-      color: var(--text-secondary);
-      line-height: 1.8;
-      max-width: 680px;
-      margin-bottom: 1.5rem;
-    }
+    .about-body { font-size: 16px; color: var(--text-secondary); line-height: 1.8; max-width: 680px; margin-bottom: 1.5rem; }
     .pills { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 0.5rem; }
-    .pill {
-      font-size: 12px;
-      color: var(--text-secondary);
-      border: 0.5px solid var(--border);
-      border-radius: 20px;
-      padding: 5px 14px;
-      letter-spacing: 0.1px;
-    }
+    .pill { font-size: 12px; color: var(--text-secondary); border: 0.5px solid var(--border); border-radius: 20px; padding: 5px 14px; }
 
     /* SERVICES */
-    .services-grid {
-      display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 16px;
-    }
-    .service-card {
-      background: var(--bg);
-      border: 0.5px solid var(--border);
-      border-radius: 12px;
-      padding: 1.5rem;
-      transition: border-color 0.2s;
-    }
+    .services-grid { display: grid; grid-template-columns: repeat(2, minmax(0,1fr)); gap: 16px; }
+    .service-card { background: var(--bg); border: 0.5px solid var(--border); border-radius: 12px; padding: 1.5rem; transition: border-color 0.2s; }
     .service-card:hover { border-color: var(--border-hover); }
-    .service-icon {
-      width: 36px; height: 36px;
-      border-radius: 8px;
-      background: var(--bg-secondary);
-      display: flex; align-items: center; justify-content: center;
-      margin-bottom: 1rem;
-    }
+    .service-icon { width: 36px; height: 36px; border-radius: 8px; background: var(--bg-secondary); display: flex; align-items: center; justify-content: center; margin-bottom: 1rem; }
     .service-icon svg { width: 16px; height: 16px; stroke: var(--text-secondary); fill: none; stroke-width: 1.5; }
     .service-card h3 { font-size: 15px; font-weight: 500; margin-bottom: 8px; color: var(--text); }
     .service-card p { font-size: 13px; color: var(--text-secondary); line-height: 1.65; }
 
     /* QUOTE */
-    .quote-block {
-      border-left: 2px solid var(--border);
-      padding-left: 1.5rem;
-      margin-bottom: 2rem;
-    }
-    .quote-text {
-      font-family: Georgia, "Times New Roman", serif;
-      font-size: 18px;
-      line-height: 1.7;
-      color: var(--text);
-      margin-bottom: 0.75rem;
-    }
+    .quote-block { border-left: 2px solid var(--border); padding-left: 1.5rem; margin-bottom: 2rem; }
+    .quote-text { font-family: Georgia, "Times New Roman", serif; font-size: 18px; line-height: 1.7; color: var(--text); margin-bottom: 0.75rem; }
     .quote-attr { font-size: 13px; color: var(--text-secondary); }
 
-    /* CONTACT */
-    .contact-box {
-      background: var(--bg-secondary);
-      border-radius: 12px;
-      padding: 3rem 2.5rem;
-      text-align: center;
-      margin: 0 2.5rem 5rem;
-    }
+    /* CONTACT / FORM */
+    .contact-box { background: var(--bg-secondary); border-radius: 12px; padding: 3rem 2.5rem; text-align: center; margin: 0 2.5rem 5rem; }
     .contact-box h2 { font-size: 28px; font-weight: 500; letter-spacing: -0.5px; margin-bottom: 0.75rem; }
-    .contact-box p { font-size: 16px; color: var(--text-secondary); max-width: 480px; margin: 0 auto 2rem; }
+    .contact-box > p { font-size: 16px; color: var(--text-secondary); max-width: 480px; margin: 0 auto 2rem; }
+    .contact-form { width: 100%; max-width: 480px; margin: 0 auto 1.5rem; text-align: left; display: flex; flex-direction: column; gap: 12px; }
+    .form-group { display: flex; flex-direction: column; gap: 5px; }
+    .form-group label { font-size: 12px; letter-spacing: 0.5px; text-transform: uppercase; color: var(--text-secondary); }
+    .form-group input, .form-group textarea {
+      background: var(--bg); border: 0.5px solid var(--border); border-radius: 8px;
+      padding: 10px 14px; font-size: 14px; color: var(--text); font-family: inherit;
+      transition: border-color 0.2s; width: 100%; resize: vertical;
+    }
+    .form-group input:focus, .form-group textarea:focus { outline: none; border-color: var(--border-hover); }
+    .form-group textarea { min-height: 120px; }
+    .form-success {
+      display: none; font-size: 14px; color: var(--text-secondary);
+      background: var(--bg); border: 0.5px solid var(--border); border-radius: 8px;
+      padding: 12px 16px; margin-bottom: 1rem; max-width: 480px;
+      margin-left: auto; margin-right: auto; text-align: center;
+    }
     .contact-links { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; margin-top: 1.5rem; }
     .contact-link {
-      font-size: 13px;
-      color: var(--text-secondary);
-      text-decoration: none;
-      border: 0.5px solid var(--border);
-      border-radius: 8px;
-      padding: 9px 18px;
-      background: var(--bg);
-      transition: border-color 0.2s, color 0.2s;
+      font-size: 13px; color: var(--text-secondary); text-decoration: none;
+      border: 0.5px solid var(--border); border-radius: 8px; padding: 9px 18px;
+      background: var(--bg); transition: border-color 0.2s, color 0.2s;
     }
     .contact-link:hover { border-color: var(--border-hover); color: var(--text); }
 
-    /* FORM */
-    .contact-form {
-      width: 100%;
-      max-width: 480px;
-      margin: 0 auto 1.5rem;
-      text-align: left;
-      display: flex;
-      flex-direction: column;
-      gap: 12px;
-    }
-    .form-group { display: flex; flex-direction: column; gap: 5px; }
-    .form-group label { font-size: 12px; letter-spacing: 0.5px; text-transform: uppercase; color: var(--text-secondary); }
-    .form-group input,
-    .form-group textarea {
-      background: var(--bg);
-      border: 0.5px solid var(--border);
-      border-radius: 8px;
-      padding: 10px 14px;
-      font-size: 14px;
-      color: var(--text);
-      font-family: inherit;
-      transition: border-color 0.2s;
-      width: 100%;
-      resize: vertical;
-    }
-    .form-group input:focus,
-    .form-group textarea:focus {
-      outline: none;
-      border-color: var(--border-hover);
-    }
-    .form-group textarea { min-height: 120px; }
-    .form-success {
-      display: none;
-      font-size: 14px;
-      color: var(--text-secondary);
-      background: var(--bg);
-      border: 0.5px solid var(--border);
-      border-radius: 8px;
-      padding: 12px 16px;
-      margin-bottom: 1rem;
-      max-width: 480px;
-      margin-left: auto;
-      margin-right: auto;
-      text-align: center;
-    }
-
     /* FOOTER */
-    footer {
-      text-align: center;
-      padding: 2rem;
-      font-size: 12px;
-      color: var(--text-tertiary);
-      border-top: 0.5px solid var(--border);
-      letter-spacing: 0.3px;
-    }
+    footer { text-align: center; padding: 2rem; font-size: 12px; color: var(--text-tertiary); border-top: 0.5px solid var(--border); letter-spacing: 0.3px; }
 
     /* RESPONSIVE */
     @media (max-width: 640px) {
       nav { padding: 1rem 1.5rem; }
       .nav-links { display: none; }
-      .nav-links.open { display: flex; flex-direction: column; gap: 1rem; position: absolute; top: 56px; left: 0; right: 0; background: var(--bg); padding: 1.5rem; border-bottom: 0.5px solid var(--border); }
+      .nav-links.open { display: flex; flex-direction: column; gap: 1rem; position: absolute; top: 62px; left: 0; right: 0; background: var(--bg); padding: 1.5rem; border-bottom: 0.5px solid var(--border); }
       .nav-toggle { display: block; }
       .section { padding: 3.5rem 1.5rem; }
       .hero { padding-top: 4rem; padding-bottom: 4rem; }
@@ -321,147 +163,118 @@
 <nav>
   <span class="nav-name">Israel Salas Velasco</span>
   <div class="nav-links" id="nav-menu">
-    <a href="#about">Sobre mí</a>
-    <a href="#services">Servicios</a>
-    <a href="#contact">Contacto</a>
+    <a href="#about"    id="nav-about">Sobre mí</a>
+    <a href="#services" id="nav-services">Servicios</a>
+    <a href="#contact"  id="nav-contact">Contacto</a>
   </div>
-  <button class="nav-toggle" id="nav-toggle" aria-label="Menú">
-    <span></span><span></span><span></span>
-  </button>
+  <div class="nav-right">
+    <button class="btn-lang" id="lang-toggle" onclick="toggleLang()">EN</button>
+    <button class="nav-toggle" id="nav-toggle" aria-label="Menú">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
 </nav>
 
+<!-- HERO -->
 <div class="section hero">
-  <p class="hero-eyebrow">COO &amp; Fractional C-Suite Advisor</p>
-  <h1>Operaciones que <em>escalan.</em><br>Liderazgo que entrega resultados.</h1>
-  <p class="hero-body">Con más de 15 años de experiencia, ayudo a empresas de servicios y organizaciones en crecimiento a diseñar modelos operativos sólidos, reducir riesgos estructurales y ejecutar con claridad — sin añadir complejidad innecesaria.</p>
+  <p class="hero-eyebrow" id="hero-eyebrow">COO &amp; Fractional C-Suite Advisor</p>
+  <h1 id="hero-h1">Operaciones que <em>escalan.</em><br>Liderazgo que entrega resultados.</h1>
+  <p class="hero-body" id="hero-body">Con más de 15 años de experiencia, ayudo a empresas de servicios y organizaciones en crecimiento a diseñar modelos operativos sólidos, reducir riesgos estructurales y ejecutar con claridad — sin añadir complejidad innecesaria.</p>
   <div class="hero-cta">
-    <a class="btn-dark" href="#contact">Trabajemos juntos</a>
-    <a class="btn-outline" href="#services">Ver servicios</a>
+    <a class="btn-dark"    href="#contact"  id="hero-cta-primary">Trabajemos juntos</a>
+    <a class="btn-outline" href="#services" id="hero-cta-secondary">Ver servicios</a>
   </div>
 </div>
 
+<!-- CREDENTIALS -->
 <div class="credential-bar">
-  <div class="cred-item">
-    <div class="cred-num">15+</div>
-    <div class="cred-label">Años de experiencia</div>
-  </div>
-  <div class="cred-item">
-    <div class="cred-num">COO</div>
-    <div class="cred-label">Nivel C-Suite en operaciones</div>
-  </div>
-  <div class="cred-item">
-    <div class="cred-num">Multi-región</div>
-    <div class="cred-label">Equipos remotos internacionales</div>
-  </div>
-  <div class="cred-item">
-    <div class="cred-num">Fractional</div>
-    <div class="cred-label">Modelo flexible para tu empresa</div>
-  </div>
+  <div class="cred-item"><div class="cred-num">15+</div><div class="cred-label" id="cred-label-1">Años de experiencia</div></div>
+  <div class="cred-item"><div class="cred-num">COO</div><div class="cred-label" id="cred-label-2">Nivel C-Suite en operaciones</div></div>
+  <div class="cred-item"><div class="cred-num">Multi-región</div><div class="cred-label" id="cred-label-3">Equipos remotos internacionales</div></div>
+  <div class="cred-item"><div class="cred-num">Fractional</div><div class="cred-label" id="cred-label-4">Modelo flexible para tu empresa</div></div>
 </div>
 
 <hr class="divider">
 
+<!-- ABOUT -->
 <div class="section" id="about">
-  <p class="section-label">Sobre mí</p>
-  <h2>Claridad operativa para empresas que quieren crecer con control</h2>
-  <p class="about-body">Soy consultor ejecutivo especializado en diseño de modelos de negocio y operativos, mejora de procesos, gestión del desempeño y ejecución interfuncional. Mi enfoque es práctico: propongo e implemento soluciones que fortalecen la estructura operativa, aumentan la capacidad y reducen el riesgo financiero y estructural — sin complejidad innecesaria.</p>
-  <p class="about-body">He liderado equipos internacionales completamente remotos en múltiples regiones, trabajando con empresas de servicios y compañías de tamaño pequeño a mediano en momentos críticos de crecimiento y transformación.</p>
+  <p class="section-label" id="about-label">Sobre mí</p>
+  <h2 id="about-h2">Claridad operativa para empresas que quieren crecer con control</h2>
+  <p class="about-body" id="about-p1">Soy consultor ejecutivo especializado en diseño de modelos de negocio y operativos, mejora de procesos, gestión del desempeño y ejecución interfuncional. Mi enfoque es práctico: propongo e implemento soluciones que fortalecen la estructura operativa, aumentan la capacidad y reducen el riesgo financiero y estructural — sin complejidad innecesaria.</p>
+  <p class="about-body" id="about-p2">He liderado equipos internacionales completamente remotos en múltiples regiones, trabajando con empresas de servicios y compañías de tamaño pequeño a mediano en momentos críticos de crecimiento y transformación.</p>
   <div class="pills">
-    <span class="pill">Diseño de modelo operativo</span>
-    <span class="pill">Mejora de procesos</span>
-    <span class="pill">Gestión del desempeño</span>
-    <span class="pill">Ejecución interfuncional</span>
-    <span class="pill">Equipos remotos</span>
-    <span class="pill">Reducción de riesgo estructural</span>
-    <span class="pill">Fractional COO</span>
-    <span class="pill">Escala operativa</span>
+    <span class="pill" id="pill-1">Diseño de modelo operativo</span>
+    <span class="pill" id="pill-2">Mejora de procesos</span>
+    <span class="pill" id="pill-3">Gestión del desempeño</span>
+    <span class="pill" id="pill-4">Ejecución interfuncional</span>
+    <span class="pill" id="pill-5">Equipos remotos</span>
+    <span class="pill" id="pill-6">Reducción de riesgo estructural</span>
+    <span class="pill" id="pill-7">Fractional COO</span>
+    <span class="pill" id="pill-8">Escala operativa</span>
   </div>
 </div>
 
 <hr class="divider">
 
+<!-- SERVICES -->
 <div class="section" id="services">
-  <p class="section-label">Servicios</p>
-  <h2>Cómo puedo ayudarte</h2>
+  <p class="section-label" id="services-label">Servicios</p>
+  <h2 id="services-h2">Cómo puedo ayudarte</h2>
   <div class="services-grid">
     <div class="service-card">
-      <div class="service-icon">
-        <svg viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/><path d="M14 17.5h7M17.5 14v7"/></svg>
-      </div>
-      <h3>Fractional COO</h3>
-      <p>Liderazgo operativo de alto nivel sin el costo de un ejecutivo de tiempo completo. Ideal para empresas en crecimiento que necesitan estructura y dirección ejecutiva.</p>
+      <div class="service-icon"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/><path d="M14 17.5h7M17.5 14v7"/></svg></div>
+      <h3 id="s1-title">Fractional COO</h3>
+      <p id="s1-body">Liderazgo operativo de alto nivel sin el costo de un ejecutivo de tiempo completo. Ideal para empresas en crecimiento que necesitan estructura y dirección ejecutiva.</p>
     </div>
     <div class="service-card">
-      <div class="service-icon">
-        <svg viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
-      </div>
-      <h3>Diseño de modelo operativo</h3>
-      <p>Construcción y rediseño de modelos de negocio y operativos que soporten el crecimiento, mejoren la eficiencia y reduzcan el riesgo estructural y financiero.</p>
+      <div class="service-icon"><svg viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg></div>
+      <h3 id="s2-title">Diseño de modelo operativo</h3>
+      <p id="s2-body">Construcción y rediseño de modelos de negocio y operativos que soporten el crecimiento, mejoren la eficiencia y reduzcan el riesgo estructural y financiero.</p>
     </div>
     <div class="service-card">
-      <div class="service-icon">
-        <svg viewBox="0 0 24 24"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
-      </div>
-      <h3>Mejora de procesos y desempeño</h3>
-      <p>Diagnóstico y optimización de procesos clave, sistemas de gestión del desempeño y marcos de ejecución para equipos multifuncionales.</p>
+      <div class="service-icon"><svg viewBox="0 0 24 24"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg></div>
+      <h3 id="s3-title">Mejora de procesos y desempeño</h3>
+      <p id="s3-body">Diagnóstico y optimización de procesos clave, sistemas de gestión del desempeño y marcos de ejecución para equipos multifuncionales.</p>
     </div>
     <div class="service-card">
-      <div class="service-icon">
-        <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/></svg>
-      </div>
-      <h3>Asesoría C-Suite fraccional</h3>
-      <p>Acompañamiento estratégico a fundadores y directivos en decisiones operativas críticas, con foco en ejecución práctica y resultados medibles.</p>
+      <div class="service-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/></svg></div>
+      <h3 id="s4-title">Asesoría C-Suite fraccional</h3>
+      <p id="s4-body">Acompañamiento estratégico a fundadores y directivos en decisiones operativas críticas, con foco en ejecución práctica y resultados medibles.</p>
     </div>
   </div>
 </div>
 
 <hr class="divider">
 
+<!-- WHY -->
 <div class="section">
-  <p class="section-label">Por qué trabajar conmigo</p>
+  <p class="section-label" id="why-label">Por qué trabajar conmigo</p>
   <div class="quote-block">
-    <p class="quote-text">"Combino visión estratégica con ejecución práctica. No entrego presentaciones — entrego sistemas que funcionan."</p>
-    <p class="quote-attr">— Israel Salas Velasco, COO &amp; Advisor</p>
+    <p class="quote-text" id="why-quote">"Combino visión estratégica con ejecución práctica. No entrego presentaciones — entrego sistemas que funcionan."</p>
+    <p class="quote-attr"  id="why-attr">— Israel Salas Velasco, COO &amp; Advisor</p>
   </div>
-  <p class="about-body">Mi diferenciador es la capacidad de operar tanto a nivel estratégico como en los detalles de implementación. Entiendo que cada empresa es diferente, por lo que mis soluciones se adaptan al contexto, la cultura y el momento de cada organización — sin fórmulas genéricas.</p>
+  <p class="about-body" id="why-body">Mi diferenciador es la capacidad de operar tanto a nivel estratégico como en los detalles de implementación. Entiendo que cada empresa es diferente, por lo que mis soluciones se adaptan al contexto, la cultura y el momento de cada organización — sin fórmulas genéricas.</p>
 </div>
 
+<!-- CONTACT -->
 <div class="contact-box" id="contact">
-  <p class="section-label" style="text-align:center;">Contacto</p>
-  <h2>¿Listo para transformar tus operaciones?</h2>
-  <p>Platicemos sobre los retos de tu empresa y cómo puedo ayudarte a construir una operación más sólida y escalable.</p>
+  <p class="section-label" id="contact-label" style="text-align:center;">Contacto</p>
+  <h2 id="contact-h2">¿Listo para transformar tus operaciones?</h2>
+  <p id="contact-body">Platicemos sobre los retos de tu empresa y cómo puedo ayudarte a construir una operación más sólida y escalable.</p>
 
   <div class="form-success" id="form-success">✓ Mensaje enviado. Te responderé a la brevedad.</div>
 
-  <!-- ⚠️ INSTRUCCIÓN: Reemplaza "TU_ID_DE_FORMSPREE" con tu ID real de Formspree -->
-  <!-- Pasos: 1) Ve a formspree.io  2) Crea una cuenta  3) Crea un nuevo formulario -->
-  <!-- 4) Copia el ID que aparece en la URL (ej: xpwzabcd)  5) Pégalo abajo -->
-  <form
-    class="contact-form"
-    id="contact-form"
-    action="https://formspree.io/f/mkokbbzw"
-    method="POST"
-  >
+  <!-- ⚠️ INSTRUCCIÓN: Reemplaza "TU_ID_DE_FORMSPREE" con tu ID real (línea de abajo) -->
+  <form class="contact-form" id="contact-form" action="https://formspree.io/f/TU_ID_DE_FORMSPREE" method="POST">
     <div class="form-group">
-      <label for="email">Tu dirección de correo</label>
-      <input
-        type="email"
-        id="email"
-        name="email"
-        placeholder="nombre@empresa.com"
-        required
-      >
+      <label for="form-email-input" id="form-email-label">Tu dirección de correo</label>
+      <input type="email" id="form-email-input" name="email" placeholder="nombre@empresa.com" required>
     </div>
     <div class="form-group">
-      <label for="message">Mensaje</label>
-      <textarea
-        id="message"
-        name="message"
-        placeholder="Cuéntame sobre tu empresa y el reto que quieres resolver..."
-        required
-      ></textarea>
+      <label for="form-msg-input" id="form-msg-label">Mensaje</label>
+      <textarea id="form-msg-input" name="message" placeholder="Cuéntame sobre tu empresa y el reto que quieres resolver..." required></textarea>
     </div>
-    <button type="submit" class="btn-dark" style="width:100%; text-align:center;">Enviar mensaje</button>
+    <button type="submit" class="btn-dark" id="form-submit-btn" style="width:100%;text-align:center;">Enviar mensaje</button>
   </form>
 
   <div class="contact-links">
@@ -470,46 +283,152 @@
   </div>
 </div>
 
-<footer>© 2026 Israel Salas Velasco — Querétaro, México</footer>
+<footer><span id="footer-txt">© 2026 Israel Salas Velasco — Querétaro, México</span></footer>
 
 <script>
-  // Nav toggle (mobile)
-  const toggle = document.getElementById('nav-toggle');
-  const menu = document.getElementById('nav-menu');
-  toggle.addEventListener('click', () => menu.classList.toggle('open'));
-  document.querySelectorAll('.nav-links a').forEach(a => {
-    a.addEventListener('click', () => menu.classList.remove('open'));
-  });
+  // ── Nav toggle (mobile) ─────────────────────────────────────────
+  document.getElementById('nav-toggle').addEventListener('click', () =>
+    document.getElementById('nav-menu').classList.toggle('open')
+  );
+  document.querySelectorAll('.nav-links a').forEach(a =>
+    a.addEventListener('click', () => document.getElementById('nav-menu').classList.remove('open'))
+  );
 
-  // Contact form — Formspree async submission
-  const form = document.getElementById('contact-form');
-  const successMsg = document.getElementById('form-success');
-
-  form.addEventListener('submit', async function(e) {
+  // ── Contact form — Formspree async ──────────────────────────────
+  document.getElementById('contact-form').addEventListener('submit', async function(e) {
     e.preventDefault();
-    const btn = form.querySelector('button[type="submit"]');
-    btn.textContent = 'Enviando...';
+    const btn = document.getElementById('form-submit-btn');
+    btn.textContent = currentLang === 'es' ? 'Enviando...' : 'Sending...';
     btn.disabled = true;
-
     try {
-      const response = await fetch(form.action, {
-        method: 'POST',
-        body: new FormData(form),
-        headers: { 'Accept': 'application/json' }
+      const res = await fetch(this.action, {
+        method: 'POST', body: new FormData(this), headers: { 'Accept': 'application/json' }
       });
-
-      if (response.ok) {
-        form.style.display = 'none';
-        successMsg.style.display = 'block';
+      if (res.ok) {
+        this.style.display = 'none';
+        document.getElementById('form-success').style.display = 'block';
       } else {
-        btn.textContent = 'Error al enviar. Intenta de nuevo.';
+        btn.textContent = currentLang === 'es' ? 'Error al enviar. Intenta de nuevo.' : 'Error sending. Please try again.';
         btn.disabled = false;
       }
     } catch {
-      btn.textContent = 'Error al enviar. Intenta de nuevo.';
+      btn.textContent = currentLang === 'es' ? 'Error al enviar. Intenta de nuevo.' : 'Error sending. Please try again.';
       btn.disabled = false;
     }
   });
+
+  // ── Translations ─────────────────────────────────────────────────
+  const T = {
+    es: {
+      'nav-about':'Sobre mí','nav-services':'Servicios','nav-contact':'Contacto',
+      'hero-eyebrow':'COO & Fractional C-Suite Advisor',
+      'hero-h1':'Operaciones que <em>escalan.</em><br>Liderazgo que entrega resultados.',
+      'hero-body':'Con más de 15 años de experiencia, ayudo a empresas de servicios y organizaciones en crecimiento a diseñar modelos operativos sólidos, reducir riesgos estructurales y ejecutar con claridad — sin añadir complejidad innecesaria.',
+      'hero-cta-primary':'Trabajemos juntos','hero-cta-secondary':'Ver servicios',
+      'cred-label-1':'Años de experiencia','cred-label-2':'Nivel C-Suite en operaciones',
+      'cred-label-3':'Equipos remotos internacionales','cred-label-4':'Modelo flexible para tu empresa',
+      'about-label':'Sobre mí',
+      'about-h2':'Claridad operativa para empresas que quieren crecer con control',
+      'about-p1':'Soy consultor ejecutivo especializado en diseño de modelos de negocio y operativos, mejora de procesos, gestión del desempeño y ejecución interfuncional. Mi enfoque es práctico: propongo e implemento soluciones que fortalecen la estructura operativa, aumentan la capacidad y reducen el riesgo financiero y estructural — sin complejidad innecesaria.',
+      'about-p2':'He liderado equipos internacionales completamente remotos en múltiples regiones, trabajando con empresas de servicios y compañías de tamaño pequeño a mediano en momentos críticos de crecimiento y transformación.',
+      'pill-1':'Diseño de modelo operativo','pill-2':'Mejora de procesos',
+      'pill-3':'Gestión del desempeño','pill-4':'Ejecución interfuncional',
+      'pill-5':'Equipos remotos','pill-6':'Reducción de riesgo estructural',
+      'pill-7':'Fractional COO','pill-8':'Escala operativa',
+      'services-label':'Servicios','services-h2':'Cómo puedo ayudarte',
+      's1-title':'Fractional COO',
+      's1-body':'Liderazgo operativo de alto nivel sin el costo de un ejecutivo de tiempo completo. Ideal para empresas en crecimiento que necesitan estructura y dirección ejecutiva.',
+      's2-title':'Diseño de modelo operativo',
+      's2-body':'Construcción y rediseño de modelos de negocio y operativos que soporten el crecimiento, mejoren la eficiencia y reduzcan el riesgo estructural y financiero.',
+      's3-title':'Mejora de procesos y desempeño',
+      's3-body':'Diagnóstico y optimización de procesos clave, sistemas de gestión del desempeño y marcos de ejecución para equipos multifuncionales.',
+      's4-title':'Asesoría C-Suite fraccional',
+      's4-body':'Acompañamiento estratégico a fundadores y directivos en decisiones operativas críticas, con foco en ejecución práctica y resultados medibles.',
+      'why-label':'Por qué trabajar conmigo',
+      'why-quote':'"Combino visión estratégica con ejecución práctica. No entrego presentaciones — entrego sistemas que funcionan."',
+      'why-attr':'— Israel Salas Velasco, COO & Advisor',
+      'why-body':'Mi diferenciador es la capacidad de operar tanto a nivel estratégico como en los detalles de implementación. Entiendo que cada empresa es diferente, por lo que mis soluciones se adaptan al contexto, la cultura y el momento de cada organización — sin fórmulas genéricas.',
+      'contact-label':'Contacto',
+      'contact-h2':'¿Listo para transformar tus operaciones?',
+      'contact-body':'Platicemos sobre los retos de tu empresa y cómo puedo ayudarte a construir una operación más sólida y escalable.',
+      'form-email-label':'Tu dirección de correo','form-email-ph':'nombre@empresa.com',
+      'form-msg-label':'Mensaje','form-msg-ph':'Cuéntame sobre tu empresa y el reto que quieres resolver...',
+      'form-submit':'Enviar mensaje','form-success-txt':'✓ Mensaje enviado. Te responderé a la brevedad.',
+      'footer-txt':'© 2026 Israel Salas Velasco — Querétaro, México','html-lang':'es'
+    },
+    en: {
+      'nav-about':'About','nav-services':'Services','nav-contact':'Contact',
+      'hero-eyebrow':'COO & Fractional C-Suite Advisor',
+      'hero-h1':'Operations that <em>scale.</em><br>Leadership that delivers results.',
+      'hero-body':'With 15+ years of experience, I help service-based organizations and growing companies design solid operating models, reduce structural risk, and execute with clarity — without adding unnecessary complexity.',
+      'hero-cta-primary':"Let's work together",'hero-cta-secondary':'View services',
+      'cred-label-1':'Years of experience','cred-label-2':'C-Suite operations level',
+      'cred-label-3':'International remote teams','cred-label-4':'Flexible model for your company',
+      'about-label':'About me',
+      'about-h2':'Operational clarity for companies that want to grow with control',
+      'about-p1':'I am an executive consultant specializing in business and operating model design, process improvement, performance management, and cross-functional execution. My approach is practical: I propose and implement solutions that strengthen the operational framework, boost capacity, and reduce financial and structural risk — without unnecessary complexity.',
+      'about-p2':'I have led fully remote international teams across multiple regions, working with service companies and small to mid-size businesses at critical moments of growth and transformation.',
+      'pill-1':'Operating model design','pill-2':'Process improvement',
+      'pill-3':'Performance management','pill-4':'Cross-functional execution',
+      'pill-5':'Remote teams','pill-6':'Structural risk reduction',
+      'pill-7':'Fractional COO','pill-8':'Operational scaling',
+      'services-label':'Services','services-h2':'How I can help you',
+      's1-title':'Fractional COO',
+      's1-body':'High-level operational leadership without the cost of a full-time executive. Ideal for growing companies that need structure and executive direction.',
+      's2-title':'Operating model design',
+      's2-body':'Building and redesigning business and operating models that support growth, improve efficiency, and reduce structural and financial risk.',
+      's3-title':'Process & performance improvement',
+      's3-body':'Diagnosis and optimization of key processes, performance management systems, and execution frameworks for cross-functional teams.',
+      's4-title':'Fractional C-Suite advisory',
+      's4-body':'Strategic support for founders and executives in critical operational decisions, with a focus on practical execution and measurable results.',
+      'why-label':'Why work with me',
+      'why-quote':'"I combine strategic vision with practical execution. I don\'t deliver presentations — I deliver systems that work."',
+      'why-attr':'— Israel Salas Velasco, COO & Advisor',
+      'why-body':'My differentiator is the ability to operate at both the strategic level and the implementation details. I understand that every company is different, so my solutions adapt to the context, culture, and stage of each organization — no generic formulas.',
+      'contact-label':'Contact',
+      'contact-h2':'Ready to transform your operations?',
+      'contact-body':"Let's talk about your company's challenges and how I can help you build a stronger, more scalable operation.",
+      'form-email-label':'Your email address','form-email-ph':'name@company.com',
+      'form-msg-label':'Message','form-msg-ph':'Tell me about your company and the challenge you want to solve...',
+      'form-submit':'Send message','form-success-txt':"✓ Message sent. I'll get back to you shortly.",
+      'footer-txt':'© 2026 Israel Salas Velasco — Querétaro, México','html-lang':'en'
+    }
+  };
+
+  let currentLang = 'es';
+
+  function toggleLang() {
+    currentLang = currentLang === 'es' ? 'en' : 'es';
+    applyLang(currentLang);
+    document.getElementById('lang-toggle').textContent = currentLang === 'es' ? 'EN' : 'ES';
+  }
+
+  function applyLang(lang) {
+    const t = T[lang];
+    document.documentElement.lang = t['html-lang'];
+    const set  = (id, val) => { const el = document.getElementById(id); if (el) el.textContent = val; };
+    const setH = (id, val) => { const el = document.getElementById(id); if (el) el.innerHTML  = val; };
+
+    set('nav-about', t['nav-about']); set('nav-services', t['nav-services']); set('nav-contact', t['nav-contact']);
+    set('hero-eyebrow', t['hero-eyebrow']); setH('hero-h1', t['hero-h1']); set('hero-body', t['hero-body']);
+    set('hero-cta-primary', t['hero-cta-primary']); set('hero-cta-secondary', t['hero-cta-secondary']);
+    set('cred-label-1', t['cred-label-1']); set('cred-label-2', t['cred-label-2']);
+    set('cred-label-3', t['cred-label-3']); set('cred-label-4', t['cred-label-4']);
+    set('about-label', t['about-label']); set('about-h2', t['about-h2']);
+    set('about-p1', t['about-p1']); set('about-p2', t['about-p2']);
+    for (let i = 1; i <= 8; i++) set('pill-' + i, t['pill-' + i]);
+    set('services-label', t['services-label']); set('services-h2', t['services-h2']);
+    for (let i = 1; i <= 4; i++) { set('s'+i+'-title', t['s'+i+'-title']); set('s'+i+'-body', t['s'+i+'-body']); }
+    set('why-label', t['why-label']); set('why-quote', t['why-quote']);
+    set('why-attr',  t['why-attr']);  set('why-body',  t['why-body']);
+    set('contact-label', t['contact-label']); set('contact-h2', t['contact-h2']); set('contact-body', t['contact-body']);
+    set('form-email-label', t['form-email-label']);
+    document.getElementById('form-email-input').placeholder = t['form-email-ph'];
+    set('form-msg-label', t['form-msg-label']);
+    document.getElementById('form-msg-input').placeholder = t['form-msg-ph'];
+    set('form-submit-btn', t['form-submit']); set('form-success', t['form-success-txt']);
+    set('footer-txt', t['footer-txt']);
+  }
 </script>
 
 </body>
