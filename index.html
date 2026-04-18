@@ -188,10 +188,10 @@
 
 <!-- CREDENTIALS -->
 <div class="credential-bar">
-  <div class="cred-item"><div class="cred-num">15+</div><div class="cred-label" id="cred-label-1">Años de experiencia</div></div>
-  <div class="cred-item"><div class="cred-num">COO</div><div class="cred-label" id="cred-label-2">Nivel C-Suite en operaciones</div></div>
-  <div class="cred-item"><div class="cred-num">Multi-región</div><div class="cred-label" id="cred-label-3">Equipos remotos internacionales</div></div>
-  <div class="cred-item"><div class="cred-num">Fractional</div><div class="cred-label" id="cred-label-4">Modelo flexible para tu empresa</div></div>
+  <div class="cred-item"><div class="cred-num" id="cred-num-1">15+</div><div class="cred-label" id="cred-label-1">Años de experiencia</div></div>
+  <div class="cred-item"><div class="cred-num" id="cred-num-2">DO</div><div class="cred-label" id="cred-label-2">Nivel C-Suite en operaciones</div></div>
+  <div class="cred-item"><div class="cred-num" id="cred-num-3">Multi-región</div><div class="cred-label" id="cred-label-3">Equipos remotos internacionales</div></div>
+  <div class="cred-item"><div class="cred-num" id="cred-num-4">Fraccional</div><div class="cred-label" id="cred-label-4">Modelo flexible para tu empresa</div></div>
 </div>
 
 <hr class="divider">
@@ -209,7 +209,7 @@
     <span class="pill" id="pill-4">Ejecución interfuncional</span>
     <span class="pill" id="pill-5">Equipos remotos</span>
     <span class="pill" id="pill-6">Reducción de riesgo estructural</span>
-    <span class="pill" id="pill-7">Fractional COO</span>
+    <span class="pill" id="pill-7">DO fraccional</span>
     <span class="pill" id="pill-8">Escala operativa</span>
   </div>
 </div>
@@ -223,22 +223,22 @@
   <div class="services-grid">
     <div class="service-card">
       <div class="service-icon"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/><path d="M14 17.5h7M17.5 14v7"/></svg></div>
-      <h3 id="s1-title">Fractional COO</h3>
+      <h3 id="s1-title">DO fraccional</h3>
       <p id="s1-body">Liderazgo operativo de alto nivel sin el costo de un ejecutivo de tiempo completo. Ideal para empresas en crecimiento que necesitan estructura y dirección ejecutiva.</p>
     </div>
     <div class="service-card">
       <div class="service-icon"><svg viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg></div>
-      <h3 id="s2-title">Diseño de modelo operativo</h3>
+      <h3 id="s2-title">Diseño de modelo de operaciones</h3>
       <p id="s2-body">Construcción y rediseño de modelos de negocio y operativos que soporten el crecimiento, mejoren la eficiencia y reduzcan el riesgo estructural y financiero.</p>
     </div>
     <div class="service-card">
       <div class="service-icon"><svg viewBox="0 0 24 24"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg></div>
-      <h3 id="s3-title">Mejora de procesos y desempeño</h3>
+      <h3 id="s3-title">Mejora de desempeño y procesos</h3>
       <p id="s3-body">Diagnóstico y optimización de procesos clave, sistemas de gestión del desempeño y marcos de ejecución para equipos multifuncionales.</p>
     </div>
     <div class="service-card">
       <div class="service-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/></svg></div>
-      <h3 id="s4-title">Asesoría C-Suite fraccional</h3>
+      <h3 id="s4-title">Asesoría directiva</h3>
       <p id="s4-body">Acompañamiento estratégico a fundadores y directivos en decisiones operativas críticas, con foco en ejecución práctica y resultados medibles.</p>
     </div>
   </div>
@@ -321,10 +321,11 @@
   const T = {
     es: {
       'nav-about':'Sobre mí','nav-services':'Servicios','nav-contact':'Contacto',
-      'hero-eyebrow':'COO & Fractional C-Suite Advisor',
+      'hero-eyebrow':'DO y Asesor de Dirección Fraccional',
       'hero-h1':'Operaciones que <em>escalan.</em><br>Liderazgo que entrega resultados.',
       'hero-body':'Con más de 15 años de experiencia, ayudo a empresas de servicios y organizaciones en crecimiento a diseñar modelos operativos sólidos, reducir riesgos estructurales y ejecutar con claridad — sin añadir complejidad innecesaria.',
       'hero-cta-primary':'Trabajemos juntos','hero-cta-secondary':'Ver servicios',
+      'cred-num-1':'15+','cred-num-2':'DO','cred-num-3':'Multi-región','cred-num-4':'Fraccional',
       'cred-label-1':'Años de experiencia','cred-label-2':'Nivel C-Suite en operaciones',
       'cred-label-3':'Equipos remotos internacionales','cred-label-4':'Modelo flexible para tu empresa',
       'about-label':'Sobre mí',
@@ -334,19 +335,19 @@
       'pill-1':'Diseño de modelo operativo','pill-2':'Mejora de procesos',
       'pill-3':'Gestión del desempeño','pill-4':'Ejecución interfuncional',
       'pill-5':'Equipos remotos','pill-6':'Reducción de riesgo estructural',
-      'pill-7':'Fractional COO','pill-8':'Escala operativa',
+      'pill-7':'DO fraccional','pill-8':'Escala operativa',
       'services-label':'Servicios','services-h2':'Cómo puedo ayudarte',
-      's1-title':'Fractional COO',
+      's1-title':'DO fraccional',
       's1-body':'Liderazgo operativo de alto nivel sin el costo de un ejecutivo de tiempo completo. Ideal para empresas en crecimiento que necesitan estructura y dirección ejecutiva.',
-      's2-title':'Diseño de modelo operativo',
+      's2-title':'Diseño de modelo de operaciones',
       's2-body':'Construcción y rediseño de modelos de negocio y operativos que soporten el crecimiento, mejoren la eficiencia y reduzcan el riesgo estructural y financiero.',
-      's3-title':'Mejora de procesos y desempeño',
+      's3-title':'Mejora de desempeño y procesos',
       's3-body':'Diagnóstico y optimización de procesos clave, sistemas de gestión del desempeño y marcos de ejecución para equipos multifuncionales.',
-      's4-title':'Asesoría C-Suite fraccional',
+      's4-title':'Asesoría directiva',
       's4-body':'Acompañamiento estratégico a fundadores y directivos en decisiones operativas críticas, con foco en ejecución práctica y resultados medibles.',
       'why-label':'Por qué trabajar conmigo',
       'why-quote':'"Combino visión estratégica con ejecución práctica. No entrego presentaciones — entrego sistemas que funcionan."',
-      'why-attr':'— Israel Salas Velasco, COO & Advisor',
+      'why-attr':'— Israel Salas Velasco, DO y Asesor de Dirección',
       'why-body':'Mi diferenciador es la capacidad de operar tanto a nivel estratégico como en los detalles de implementación. Entiendo que cada empresa es diferente, por lo que mis soluciones se adaptan al contexto, la cultura y el momento de cada organización — sin fórmulas genéricas.',
       'contact-label':'Contacto',
       'contact-h2':'¿Listo para transformar tus operaciones?',
@@ -362,6 +363,7 @@
       'hero-h1':'Operations that <em>scale.</em><br>Leadership that delivers results.',
       'hero-body':'With 15+ years of experience, I help service-based organizations and growing companies design solid operating models, reduce structural risk, and execute with clarity — without adding unnecessary complexity.',
       'hero-cta-primary':"Let's work together",'hero-cta-secondary':'View services',
+      'cred-num-1':'15+','cred-num-2':'COO','cred-num-3':'Multi-region','cred-num-4':'Fractional',
       'cred-label-1':'Years of experience','cred-label-2':'C-Suite operations level',
       'cred-label-3':'International remote teams','cred-label-4':'Flexible model for your company',
       'about-label':'About me',
@@ -412,6 +414,8 @@
     set('nav-about', t['nav-about']); set('nav-services', t['nav-services']); set('nav-contact', t['nav-contact']);
     set('hero-eyebrow', t['hero-eyebrow']); setH('hero-h1', t['hero-h1']); set('hero-body', t['hero-body']);
     set('hero-cta-primary', t['hero-cta-primary']); set('hero-cta-secondary', t['hero-cta-secondary']);
+    set('cred-num-1', t['cred-num-1']); set('cred-num-2', t['cred-num-2']);
+    set('cred-num-3', t['cred-num-3']); set('cred-num-4', t['cred-num-4']);
     set('cred-label-1', t['cred-label-1']); set('cred-label-2', t['cred-label-2']);
     set('cred-label-3', t['cred-label-3']); set('cred-label-4', t['cred-label-4']);
     set('about-label', t['about-label']); set('about-h2', t['about-h2']);
