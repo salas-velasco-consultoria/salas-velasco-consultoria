@@ -245,6 +245,52 @@
     }
     .contact-link:hover { border-color: var(--border-hover); color: var(--text); }
 
+    /* FORM */
+    .contact-form {
+      width: 100%;
+      max-width: 480px;
+      margin: 0 auto 1.5rem;
+      text-align: left;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+    .form-group { display: flex; flex-direction: column; gap: 5px; }
+    .form-group label { font-size: 12px; letter-spacing: 0.5px; text-transform: uppercase; color: var(--text-secondary); }
+    .form-group input,
+    .form-group textarea {
+      background: var(--bg);
+      border: 0.5px solid var(--border);
+      border-radius: 8px;
+      padding: 10px 14px;
+      font-size: 14px;
+      color: var(--text);
+      font-family: inherit;
+      transition: border-color 0.2s;
+      width: 100%;
+      resize: vertical;
+    }
+    .form-group input:focus,
+    .form-group textarea:focus {
+      outline: none;
+      border-color: var(--border-hover);
+    }
+    .form-group textarea { min-height: 120px; }
+    .form-success {
+      display: none;
+      font-size: 14px;
+      color: var(--text-secondary);
+      background: var(--bg);
+      border: 0.5px solid var(--border);
+      border-radius: 8px;
+      padding: 12px 16px;
+      margin-bottom: 1rem;
+      max-width: 480px;
+      margin-left: auto;
+      margin-right: auto;
+      text-align: center;
+    }
+
     /* FOOTER */
     footer {
       text-align: center;
@@ -384,7 +430,40 @@
   <p class="section-label" style="text-align:center;">Contacto</p>
   <h2>¿Listo para transformar tus operaciones?</h2>
   <p>Platicemos sobre los retos de tu empresa y cómo puedo ayudarte a construir una operación más sólida y escalable.</p>
-  <a class="btn-dark" href="mailto:salas.velasco.consultoria@gmail.com">Enviar un mensaje</a>
+
+  <div class="form-success" id="form-success">✓ Mensaje enviado. Te responderé a la brevedad.</div>
+
+  <!-- ⚠️ INSTRUCCIÓN: Reemplaza "TU_ID_DE_FORMSPREE" con tu ID real de Formspree -->
+  <!-- Pasos: 1) Ve a formspree.io  2) Crea una cuenta  3) Crea un nuevo formulario -->
+  <!-- 4) Copia el ID que aparece en la URL (ej: xpwzabcd)  5) Pégalo abajo -->
+  <form
+    class="contact-form"
+    id="contact-form"
+    action="https://formspree.io/f/TU_ID_DE_FORMSPREE"
+    method="POST"
+  >
+    <div class="form-group">
+      <label for="email">Tu dirección de correo</label>
+      <input
+        type="email"
+        id="email"
+        name="email"
+        placeholder="nombre@empresa.com"
+        required
+      >
+    </div>
+    <div class="form-group">
+      <label for="message">Mensaje</label>
+      <textarea
+        id="message"
+        name="message"
+        placeholder="Cuéntame sobre tu empresa y el reto que quieres resolver..."
+        required
+      ></textarea>
+    </div>
+    <button type="submit" class="btn-dark" style="width:100%; text-align:center;">Enviar mensaje</button>
+  </form>
+
   <div class="contact-links">
     <a class="contact-link" href="https://www.linkedin.com/in/israel-s-018b58181" target="_blank" rel="noopener">LinkedIn</a>
     <a class="contact-link" href="mailto:salas.velasco.consultoria@gmail.com">salas.velasco.consultoria@gmail.com</a>
@@ -394,11 +473,42 @@
 <footer>© 2026 Israel Salas Velasco — Querétaro, México</footer>
 
 <script>
+  // Nav toggle (mobile)
   const toggle = document.getElementById('nav-toggle');
   const menu = document.getElementById('nav-menu');
   toggle.addEventListener('click', () => menu.classList.toggle('open'));
   document.querySelectorAll('.nav-links a').forEach(a => {
     a.addEventListener('click', () => menu.classList.remove('open'));
+  });
+
+  // Contact form — Formspree async submission
+  const form = document.getElementById('contact-form');
+  const successMsg = document.getElementById('form-success');
+
+  form.addEventListener('submit', async function(e) {
+    e.preventDefault();
+    const btn = form.querySelector('button[type="submit"]');
+    btn.textContent = 'Enviando...';
+    btn.disabled = true;
+
+    try {
+      const response = await fetch(form.action, {
+        method: 'POST',
+        body: new FormData(form),
+        headers: { 'Accept': 'application/json' }
+      });
+
+      if (response.ok) {
+        form.style.display = 'none';
+        successMsg.style.display = 'block';
+      } else {
+        btn.textContent = 'Error al enviar. Intenta de nuevo.';
+        btn.disabled = false;
+      }
+    } catch {
+      btn.textContent = 'Error al enviar. Intenta de nuevo.';
+      btn.disabled = false;
+    }
   });
 </script>
 
