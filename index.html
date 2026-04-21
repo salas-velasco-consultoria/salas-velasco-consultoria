@@ -35,7 +35,10 @@
       background: var(--bg); position: sticky; top: 0; z-index: 100;
     }
     /* ── Tamaño del nombre en el nav: modifica "font-size" en la línea de abajo ── */
-    .nav-name { font-size: 20px; font-weight: 500; letter-spacing: -0.3px; color: var(--text); }
+    .nav-brand { display: flex; flex-direction: column; }
+    /* ── Tamaño del nombre: modificar "font-size" abajo (actualmente 50px = 20px × 2.5) ── */
+    .nav-name { font-size: 50px; font-weight: 500; letter-spacing: -0.5px; color: var(--text); line-height: 1.1; }
+    .nav-tagline { font-size: 12px; color: var(--text-secondary); letter-spacing: 0.2px; margin-top: 2px; }
     .nav-links { display: flex; gap: 2rem; }
     .nav-links a {
       font-size: 12px; color: var(--text-secondary); text-decoration: none;
@@ -143,11 +146,18 @@
     /* FOOTER */
     footer { text-align: center; padding: 2rem; font-size: 12px; color: var(--text-tertiary); border-top: 0.5px solid var(--border); letter-spacing: 0.3px; }
 
-    /* RESPONSIVE */
+    /* RESPONSIVE — tablet */
+    @media (max-width: 860px) {
+      .credential-bar { gap: 2rem; }
+    }
+
+    /* RESPONSIVE — mobile */
     @media (max-width: 640px) {
       nav { padding: 1rem 1.5rem; }
+      .nav-name { font-size: 28px; }
+      .nav-tagline { font-size: 11px; }
       .nav-links { display: none; }
-      .nav-links.open { display: flex; flex-direction: column; gap: 1rem; position: absolute; top: 62px; left: 0; right: 0; background: var(--bg); padding: 1.5rem; border-bottom: 0.5px solid var(--border); }
+      .nav-links.open { display: flex; flex-direction: column; gap: 1rem; position: absolute; top: 72px; left: 0; right: 0; background: var(--bg); padding: 1.5rem; border-bottom: 0.5px solid var(--border); }
       .nav-toggle { display: block; }
       .section { padding: 3.5rem 1.5rem; }
       .hero { padding-top: 4rem; padding-bottom: 4rem; }
@@ -155,13 +165,17 @@
       .services-grid { grid-template-columns: 1fr; }
       .contact-box { margin: 0 1.5rem 4rem; padding: 2rem 1.5rem; }
       hr.divider { margin: 0 1.5rem; }
+      .contact-form { max-width: 100%; }
     }
   </style>
 </head>
 <body>
 
 <nav>
-  <span class="nav-name">Israel Salas Velasco</span>
+  <div class="nav-brand">
+    <span class="nav-name">Israel Salas Velasco</span>
+    <span class="nav-tagline" id="nav-tagline">DO y Asesor Fraccional de Dirección</span>
+  </div>
   <div class="nav-links" id="nav-menu">
     <a href="#about"    id="nav-about">Sobre mí</a>
     <a href="#services" id="nav-services">Servicios</a>
@@ -177,7 +191,6 @@
 
 <!-- HERO -->
 <div class="section hero">
-  <p class="hero-eyebrow" id="hero-eyebrow">COO &amp; Fractional C-Suite Advisor</p>
   <h1 id="hero-h1">Operaciones que <em>escalan.</em><br>Liderazgo que entrega resultados.</h1>
   <p class="hero-body" id="hero-body">Con más de 15 años de experiencia, ayudo a empresas de servicios y organizaciones en crecimiento a diseñar modelos operativos sólidos, reducir riesgos estructurales y ejecutar con claridad — sin añadir complejidad innecesaria.</p>
   <div class="hero-cta">
@@ -209,7 +222,7 @@
     <span class="pill" id="pill-4">Ejecución interfuncional</span>
     <span class="pill" id="pill-5">Equipos remotos</span>
     <span class="pill" id="pill-6">Reducción de riesgo estructural</span>
-    <span class="pill" id="pill-7">DO fraccional</span>
+    <span class="pill" id="pill-7">Fractional COO</span>
     <span class="pill" id="pill-8">Escala operativa</span>
   </div>
 </div>
@@ -250,8 +263,8 @@
 <div class="section">
   <p class="section-label" id="why-label">Por qué trabajar conmigo</p>
   <div class="quote-block">
-    <p class="quote-text" id="why-quote">"Combino visión estratégica con ejecución práctica. No entrego presentaciones — entrego sistemas que funcionan."</p>
-    <p class="quote-attr"  id="why-attr">— Israel Salas Velasco, COO &amp; Advisor</p>
+    <p class="quote-text" id="why-quote">"Planificación estratégica y ejecución práctica. No entrego presentaciones — entrego sistemas que funcionan."</p>
+    <p class="quote-attr"  id="why-attr">— Israel Salas Velasco, DO y Asesor</p>
   </div>
   <p class="about-body" id="why-body">Mi diferenciador es la capacidad de operar tanto a nivel estratégico como en los detalles de implementación. Entiendo que cada empresa es diferente, por lo que mis soluciones se adaptan al contexto, la cultura y el momento de cada organización — sin fórmulas genéricas.</p>
 </div>
@@ -321,7 +334,8 @@
   const T = {
     es: {
       'nav-about':'Sobre mí','nav-services':'Servicios','nav-contact':'Contacto',
-      'hero-eyebrow':'DO y Asesor de Dirección Fraccional',
+      'nav-tagline':'DO y Asesor Fraccional de Dirección',
+      'hero-eyebrow':'DO y Asesor Fraccional de Dirección',
       'hero-h1':'Operaciones que <em>escalan.</em><br>Liderazgo que entrega resultados.',
       'hero-body':'Con más de 15 años de experiencia, ayudo a empresas de servicios y organizaciones en crecimiento a diseñar modelos operativos sólidos, reducir riesgos estructurales y ejecutar con claridad — sin añadir complejidad innecesaria.',
       'hero-cta-primary':'Trabajemos juntos','hero-cta-secondary':'Ver servicios',
@@ -346,8 +360,8 @@
       's4-title':'Asesoría directiva',
       's4-body':'Acompañamiento estratégico a fundadores y directivos en decisiones operativas críticas, con foco en ejecución práctica y resultados medibles.',
       'why-label':'Por qué trabajar conmigo',
-      'why-quote':'"Combino visión estratégica con ejecución práctica. No entrego presentaciones — entrego sistemas que funcionan."',
-      'why-attr':'— Israel Salas Velasco, DO y Asesor de Dirección',
+      'why-quote':'"Planificación estratégica y ejecución práctica. No entrego presentaciones — entrego sistemas que funcionan."',
+      'why-attr':'— Israel Salas Velasco, DO y Asesor',
       'why-body':'Mi diferenciador es la capacidad de operar tanto a nivel estratégico como en los detalles de implementación. Entiendo que cada empresa es diferente, por lo que mis soluciones se adaptan al contexto, la cultura y el momento de cada organización — sin fórmulas genéricas.',
       'contact-label':'Contacto',
       'contact-h2':'¿Listo para transformar tus operaciones?',
@@ -359,6 +373,7 @@
     },
     en: {
       'nav-about':'About','nav-services':'Services','nav-contact':'Contact',
+      'nav-tagline':'COO & Fractional C-Suite Advisor',
       'hero-eyebrow':'COO & Fractional C-Suite Advisor',
       'hero-h1':'Operations that <em>scale.</em><br>Leadership that delivers results.',
       'hero-body':'With 15+ years of experience, I help service-based organizations and growing companies design solid operating models, reduce structural risk, and execute with clarity — without adding unnecessary complexity.',
@@ -384,7 +399,7 @@
       's4-title':'Fractional C-Suite advisory',
       's4-body':'Strategic support for founders and executives in critical operational decisions, with a focus on practical execution and measurable results.',
       'why-label':'Why work with me',
-      'why-quote':'"I combine strategic vision with practical execution. I don\'t deliver presentations — I deliver systems that work."',
+      'why-quote':'"Strategic planing and practical execution. I don\'t deliver presentations — I deliver systems that work."',
       'why-attr':'— Israel Salas Velasco, COO & Advisor',
       'why-body':'My differentiator is the ability to operate at both the strategic level and the implementation details. I understand that every company is different, so my solutions adapt to the context, culture, and stage of each organization — no generic formulas.',
       'contact-label':'Contact',
@@ -412,6 +427,7 @@
     const setH = (id, val) => { const el = document.getElementById(id); if (el) el.innerHTML  = val; };
 
     set('nav-about', t['nav-about']); set('nav-services', t['nav-services']); set('nav-contact', t['nav-contact']);
+    set('nav-tagline', t['nav-tagline']);
     set('hero-eyebrow', t['hero-eyebrow']); setH('hero-h1', t['hero-h1']); set('hero-body', t['hero-body']);
     set('hero-cta-primary', t['hero-cta-primary']); set('hero-cta-secondary', t['hero-cta-secondary']);
     set('cred-num-1', t['cred-num-1']); set('cred-num-2', t['cred-num-2']);
